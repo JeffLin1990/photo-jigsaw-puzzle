@@ -1,0 +1,99 @@
+:root {
+    --board-size: 540px; /* 游戏板在页面的显示尺寸 */
+    --tile-size: calc(var(--board-size) / 4); /* 瓷砖尺寸 (540 / 4 = 135px) */
+    --tile-border: 1px solid rgba(255, 255, 255, 0.5); /* 瓷砖边界线 */
+    --select-color: gold;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+header h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+#controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+#statusMessage {
+    font-weight: bold;
+    color: #dc3545;
+}
+
+/* 游戏板容器：修改 grid 布局为 4x4 */
+#puzzleBoard {
+    width: var(--board-size);
+    height: var(--board-size);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 列 */
+    grid-template-rows: repeat(4, 1fr); /* 4 行 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #ccc; /* 初始背景 */
+    border: 5px solid #333;
+    position: relative;
+}
+
+/* 初始提示 */
+#initialPrompt {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: #666;
+    background-color: #eee;
+}
+
+/* 拼图块样式 */
+.puzzle-tile {
+    width: var(--tile-size);
+    height: var(--tile-size);
+    /* background-image 和 background-position 将由 JS 设置 */
+    background-size: 100% 100%; /* 确保背景图占满完整 1080x1080 */
+    cursor: pointer;
+    border: var(--tile-border);
+    transition: transform 0.2s ease-out; /* 交换时的动画效果 */
+}
+
+/* 选中状态 */
+.selected {
+    outline: 3px solid var(--select-color);
+    z-index: 10;
+}
+
+/* 胜利状态 */
+.game-won .puzzle-tile {
+    cursor: default;
+    border: none;
+    pointer-events: none; /* 禁用点击 */
+}
+
+#gameInfo {
+    margin-top: 20px;
+    display: flex;
+    gap: 40px;
+    font-size: 1.2em;
+    font-weight: bold;
+}

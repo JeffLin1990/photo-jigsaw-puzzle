@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页相片拼图游戏 (4x4)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>网页相片拼图游戏 (4x4 简化版)</h1>
+    </header>
+
+    <main>
+        <div id="controls">
+            <input type="file" id="imageUpload" accept="image/*">
+            <button id="startButton" disabled>开始游戏 (4x4)</button>
+            <div id="statusMessage">请上传一张图片开始。</div>
+        </div>
+
+        <div id="gameContainer">
+            <div id="puzzleBoard">
+                <div id="initialPrompt">
+                    上传你的照片，开始 4x4 拼图挑战！
+                </div>
+            </div>
+        </div>
+
+        <div id="gameInfo">
+            <p>步数: <span id="moveCount">0</span></p>
+            <p>时间: <span id="timer">00:00</span></p>
+        </div>
+
+    </main>
+    
+    <canvas id="cropCanvas" style="display:none;" width="1080" height="1080"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
