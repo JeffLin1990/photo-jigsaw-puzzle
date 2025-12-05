@@ -41,7 +41,7 @@ main {
     color: #dc3545;
 }
 
-/* 游戏板容器：修改 grid 布局为 4x4 */
+/* 游戏板容器：grid 布局为 4x4 */
 #puzzleBoard {
     width: var(--board-size);
     height: var(--board-size);
@@ -49,7 +49,7 @@ main {
     grid-template-columns: repeat(4, 1fr); /* 4 列 */
     grid-template-rows: repeat(4, 1fr); /* 4 行 */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    background-color: #ccc; /* 初始背景 */
+    background-color: #ccc;
     border: 5px solid #333;
     position: relative;
 }
@@ -70,11 +70,10 @@ main {
 .puzzle-tile {
     width: var(--tile-size);
     height: var(--tile-size);
-    /* background-image 和 background-position 将由 JS 设置 */
-    background-size: 100% 100%; /* 确保背景图占满完整 1080x1080 */
+    background-size: 100% 100%; 
     cursor: pointer;
     border: var(--tile-border);
-    transition: transform 0.2s ease-out; /* 交换时的动画效果 */
+    transition: transform 0.2s ease-out;
 }
 
 /* 选中状态 */
@@ -87,7 +86,7 @@ main {
 .game-won .puzzle-tile {
     cursor: default;
     border: none;
-    pointer-events: none; /* 禁用点击 */
+    pointer-events: none;
 }
 
 #gameInfo {
